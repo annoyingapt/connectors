@@ -4,3 +4,4 @@ python-dateutil==2.8.1
 feedparser==6.0.2
 beautifulsoup4==4.9.3
 lxml==4.9.1
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
