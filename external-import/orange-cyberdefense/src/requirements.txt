@@ -4,3 +4,4 @@ html2text==2020.1.16
 beautifulsoup4==4.11.1
 lxml==4.9.1
 html5lib==1.1
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
