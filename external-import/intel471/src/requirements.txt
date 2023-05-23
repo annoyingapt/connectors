@@ -2,3 +2,4 @@ pycti==5.7.4
 stix2~=3.0.1
 APScheduler~=3.8.1
 Titan-Client==1.19.3.1
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
