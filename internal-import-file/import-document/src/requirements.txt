@@ -8,3 +8,4 @@ ioc-finder==7.3.0
 dateparser==1.1.7
 pyhumps==3.8.0
 chardet==5.1.0
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
