@@ -1,3 +1,4 @@
 pycti==5.7.4
 feedparser==6.0.2
 pygrok==1.0.0
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
