@@ -2,3 +2,4 @@ pycti==5.7.4
 ioc_writer==0.3.3
 stix2-slider==4.0.0
 maec==4.1.0.17
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
