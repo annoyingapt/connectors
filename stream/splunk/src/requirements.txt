@@ -2,3 +2,4 @@ pycti==5.7.4
 stix-shifter==4.5.2
 stix-shifter-utils==4.5.2
 stix-shifter-modules-splunk==4.5.2
+cryptography>=41.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
