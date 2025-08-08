@@ -18,6 +18,7 @@ services:
       - CROWDSTRIKE_CREATE_INDICATORS=true
       - CROWDSTRIKE_SCOPES=actor,report,indicator,yara_master
       - CROWDSTRIKE_ACTOR_START_TIMESTAMP=0
+      - CROWDSTRIKE_ACTOR_ONLY_IMPORT_ACTIVE=false
       - CROWDSTRIKE_REPORT_START_TIMESTAMP=0 # BEWARE! A lot of reports!
       - CROWDSTRIKE_REPORT_STATUS=New
       - CROWDSTRIKE_REPORT_INCLUDE_TYPES=notice,tipper,intelligence report,periodic report
