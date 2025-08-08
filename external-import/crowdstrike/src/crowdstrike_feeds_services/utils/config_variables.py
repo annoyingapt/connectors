@@ -98,6 +98,13 @@ class ConfigCrowdstrike:
             isNumber=True,
         )
 
+        self.actor_only_import_active: str = get_config_variable(
+            "CROWDSTRIKE_ACTOR_ONLY_IMPORT_ACTIVE",
+            ["crowdstrike", "actor_only_import_active"],
+            self.load,
+            default=False,
+        )
+
         self.report_start_timestamp: int = get_config_variable(
             "CROWDSTRIKE_REPORT_START_TIMESTAMP",
             ["crowdstrike", "report_start_timestamp"],

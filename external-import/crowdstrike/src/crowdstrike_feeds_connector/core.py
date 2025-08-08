@@ -188,6 +188,7 @@ class CrowdStrike:
                 author,
                 actor_start_timestamp,
                 tlp_marking,
+                self.config.actor_only_import_active,
             )
 
             importers.append(actor_importer)

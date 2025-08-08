@@ -32,11 +32,13 @@ class ActorImporter(BaseImporter):
         author: Identity,
         default_latest_timestamp: int,
         tlp_marking: MarkingDefinition,
+        actor_only_import_active: bool,
     ) -> None:
         """Initialize CrowdStrike actor importer."""
         super().__init__(helper, author, tlp_marking)
         self.actors_api_cs = ActorsAPI(helper)
         self.default_latest_timestamp = default_latest_timestamp
+        self.actor_only_import_active = actor_only_import_active
 
     def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
         """Run importer."""
@@ -74,17 +76,20 @@ class ActorImporter(BaseImporter):
         return {self._LATEST_ACTOR_TIMESTAMP: latest_actor_timestamp}
 
     def _fetch_actors(self, start_timestamp: int) -> Generator[List, None, None]:
+        limit = 5000
         sort = "created_date|asc"
         fql_filter = f"created_date:>{start_timestamp}"
+        if self.actor_only_import_active:
+            fql_filter += "+status:'Active'"
         fields = ["__full__"]
 
         paginated_query = paginate(self._query_actor_entities)
 
-        return paginated_query(sort=sort, fql_filter=fql_filter, fields=fields)
+        return paginated_query(limit=limit, sort=sort, fql_filter=fql_filter, fields=fields)
 
     def _query_actor_entities(
         self,
-        limit: int = 5000,
+        limit: int = 50,
         offset: int = 0,
         sort: Optional[str] = None,
         fql_filter: Optional[str] = None,
